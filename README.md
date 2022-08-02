@@ -50,3 +50,54 @@ foreach (var group in groups)
 ```
 Trong kết quả, chúng ta có thể thấy bốn nhóm, trong đó những người trong mỗi nhóm có chung tên tuổi.
 ![image](https://user-images.githubusercontent.com/55732539/182334824-65043d27-886c-4d69-a5d7-583b0c6a04f1.png)
+
+## Multiple key selector
+ * Ví dụ trên là đơn giản nhất nhưng cũng có thể nhóm theo nhiều khóa. Để trình bày nó, hãy nhóm bộ sưu tập người của chúng ta theo cả forename và age.
+ * LAMDA EXPRESSION
+```c#
+var groups = people.GroupBy(x => (x.Forename, x.Age));
+```
+ * QUERY EXPRESSION
+```
+var groups = from p in people group p by (p.Forename, p.Age);
+```c#
+ * Kết quả có thể được in bằng mã từ ví dụ trước. Lần này chúng tôi có bảy nhóm người, nơi mỗi nhóm chỉ chứa những người có cùng forename và age.
+ ![image](https://user-images.githubusercontent.com/55732539/182339472-68448a78-4930-4c48-b207-7b784d896c1d.png)
+ 
+## Custom result selector
+ * Ví dụ cuối cùng tôi muốn trình bày ở đây là kết hợp nhóm bằng cách chọn kết quả tùy chỉnh. Trong kịch bản này, mỗi nhóm trong bộ sưu tập được trả về có thuộc tính GroupName chứa một tên khóa, GroupSize chứa số lượng mục trong một nhóm và GroupItems có chứa danh sách người trong một nhóm.
+ * LAMBDA EXPRESSION
+```c#
+var groups = people.GroupBy(x => (x.Forename)).Select(x => new
+{
+    GroupName = x.Key,
+    GroupSize = x.Count(),
+    GroupItems = x.ToList()
+});
+```
+ * QUERY EXPRESSION
+```c#
+var groups = from p in people
+             group p by p.Forename
+             into g
+             select new
+             {
+                 GroupName = g.Key,
+                 GroupSize = g.Count(),
+                 GroupItems = g.ToList()
+             };
+```
+ * Code to display results needs to be slightly modified to reflect above selector changes.
+```c#
+foreach (var group in groups)
+{
+    Console.WriteLine($"Group name: {group.GroupName}");
+    Console.WriteLine($"Group size: {group.GroupSize}");
+    foreach (var person in group.GroupItems)
+    {
+        Console.WriteLine($"Forename: {person.Forename}, Surname: {person.Surname}, Age: {person.Age}");
+    }
+    Console.WriteLine();
+}
+```
+![image](https://user-images.githubusercontent.com/55732539/182340980-ba030fd1-250a-4116-8446-18d034eb504f.png)
