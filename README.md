@@ -11,3 +11,19 @@ public class Person
     public int Age { get; set; }
 }
 ```
+```c#
+var people = new List<Person>()
+{
+    new Person() { Forename = "John", Surname = "Smith", Age = 33 },
+    new Person() { Forename = "Michael", Surname = "Jones", Age = 41 },
+    new Person() { Forename = "Susan", Surname = "Taylor", Age = 21 },
+    new Person() { Forename = "Michael", Surname = "Evans", Age = 41 },
+    new Person() { Forename = "James", Surname = "Wilson", Age = 39 },
+    new Person() { Forename = "Michael", Surname = "Johnson", Age = 35 },
+    new Person() { Forename = "Susan", Surname = "Davies", Age = 21 },
+    new Person() { Forename = "Susan", Surname = "Robinson", Age = 47 },
+    new Person() { Forename = "John", Surname = "Wright", Age = 44 },
+    new Person() { Forename = "Susan", Surname = "Walker", Age = 21 }
+};
+```
+## Single key selector
