@@ -28,3 +28,11 @@ var people = new List<Person>()
 ```
 ## Single key selector
  * Kịch bản đầu tiên là bộ sưu tập người theo nhóm của Forename.
+ * LAMBDA EXPRESSION
+```c#
+var groups = people.GroupBy(x => x.Forename);
+```
+ * QUERY EXPRESSION
+```c#
+var groups = from p in people group p by p.Forename;
+```
