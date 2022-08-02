@@ -58,9 +58,9 @@ Trong kết quả, chúng ta có thể thấy bốn nhóm, trong đó những ng
 var groups = people.GroupBy(x => (x.Forename, x.Age));
 ```
  * QUERY EXPRESSION
-```
-var groups = from p in people group p by (p.Forename, p.Age);
 ```c#
+var groups = from p in people group p by (p.Forename, p.Age);
+```
  * Kết quả có thể được in bằng mã từ ví dụ trước. Lần này chúng tôi có bảy nhóm người, nơi mỗi nhóm chỉ chứa những người có cùng forename và age.
  ![image](https://user-images.githubusercontent.com/55732539/182339472-68448a78-4930-4c48-b207-7b784d896c1d.png)
  
@@ -87,7 +87,7 @@ var groups = from p in people
                  GroupItems = g.ToList()
              };
 ```
- * Code to display results needs to be slightly modified to reflect above selector changes.
+ * Code để hiển thị kết quả cần được sửa đổi một chút để phản ánh các thay đổi chọn trên.
 ```c#
 foreach (var group in groups)
 {
