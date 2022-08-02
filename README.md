@@ -26,5 +26,5 @@ var people = new List<Person>()
     new Person() { Forename = "Susan", Surname = "Walker", Age = 21 }
 };
 ```
-## >>>>> Single key selector
+>>>>> Single key selector
 Kịch bản đầu tiên là bộ sưu tập người theo nhóm của Forename.
