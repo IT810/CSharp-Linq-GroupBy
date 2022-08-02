@@ -1,2 +1,2 @@
-# C--Linq-GroupBy
-C# – LINQ GroupBy Examples
+# C# – LINQ GroupBy Examples
+Groupby là một chức năng LINQ cho phép nhóm các mục từ bộ sưu tập dựa trên một khóa nhất định. Nó tương đương với nhóm của SQL theo mệnh đề. Trong bài viết này, chúng tôi sẽ hiển thị các ví dụ khác nhau về việc sử dụng, bắt đầu từ nhóm đơn giản nhất theo một khóa, thông qua nhóm theo nhiều khóa, bộ chọn kết quả tùy chỉnh và tất cả những điều đó trong hai biến thể: biểu thức Lambda và truy vấn.
