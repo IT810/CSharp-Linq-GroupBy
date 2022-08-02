@@ -49,6 +49,7 @@ foreach (var group in groups)
 }
 ```
 Trong kết quả, chúng ta có thể thấy bốn nhóm, trong đó những người trong mỗi nhóm có chung tên tuổi.
+
 ![image](https://user-images.githubusercontent.com/55732539/182334824-65043d27-886c-4d69-a5d7-583b0c6a04f1.png)
 
 ## Multiple key selector
@@ -62,6 +63,7 @@ var groups = people.GroupBy(x => (x.Forename, x.Age));
 var groups = from p in people group p by (p.Forename, p.Age);
 ```
  * Kết quả có thể được in bằng mã từ ví dụ trước. Lần này chúng tôi có bảy nhóm người, nơi mỗi nhóm chỉ chứa những người có cùng forename và age.
+ 
  ![image](https://user-images.githubusercontent.com/55732539/182339472-68448a78-4930-4c48-b207-7b784d896c1d.png)
  
 ## Custom result selector
