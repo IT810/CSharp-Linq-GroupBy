@@ -36,3 +36,17 @@ var groups = people.GroupBy(x => x.Forename);
 ```c#
 var groups = from p in people group p by p.Forename;
 ```
+ * Cả hai biểu thức Lambda và truy vấn đều tạo ra các kết quả giống nhau có thể được hiển thị với các vòng foreach. Chúng ta cần sử dụng hai trong số đó làm cấp độ đầu tiên là bộ sưu tập các nhóm và mỗi nhóm chứa bộ sưu tập những người trong nhóm cụ thể.
+```c#
+foreach (var group in groups)
+{
+    Console.WriteLine($"Group key: {group.Key}");
+    foreach (var person in group)
+    {
+        Console.WriteLine($"Forename: {person.Forename}, Surname: {person.Surname}, Age: {person.Age}");
+    }
+    Console.WriteLine();
+}
+```
+Trong kết quả, chúng ta có thể thấy bốn nhóm, trong đó những người trong mỗi nhóm có chung tên tuổi.
+![image](https://user-images.githubusercontent.com/55732539/182334824-65043d27-886c-4d69-a5d7-583b0c6a04f1.png)
